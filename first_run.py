@@ -19,3 +19,16 @@ t = inp #t：Type。
 if (t == 'I'):
     print('您把这台设备的类型设置为了FileIndex，我会带你到另一个.py文件进行设置。')
     os.system('python sister_index/config.py')
+elif (t == 'S'):
+    print('您把这台设备的类型设置为了FileSHA256，我会带你到另一个.py文件进行设置。')
+    os.system('python sister_sha256/config.py')
+elif (t == 'C'):
+    print('您把这台设备的类型设置为了CommonNode，我会带你到另一个.py文件进行设置。')
+    os.system('python sister_common/config.py')
+elif (t == 'R'):
+    print('您把这台设备的类型设置为了Root，我会带你到另一个.py文件进行设置。')
+    os.system('python sister_20001/config.py')
+else:
+    print('QAQ 我好似无法理解您的选择呢。御坂御坂抱歉地说到。')
+    exit("ERROR::NO_SUCH_OPTION")
+
