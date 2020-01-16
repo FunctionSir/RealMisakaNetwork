@@ -1,34 +1,40 @@
 '''
-The RealMisakaNetwork Project
-许可证：AGPL-3.0
-文  件：first_run.py
-说  明：首次运行向导。
-编  码：UTF-8
+The Project-RealMisakaNetwork
+Version: alpha-1
+License: AGPL
+File Description:
+初次运行向导。
 '''
-#!/usr/bin/python3
-#coding=utf-8
 import os
-print('MisakaNetwork 首次运行向导')
-print('版本：1.0.0, MisakaMikoto')
-print('是RealMisakaNetwork Project的一部分，使用AGPL-3.0协议')
-print('这个向导将会引领你完成第一次运行所需要的设置。御坂御坂如此回报到。')
-print('这台设备将成为0号（FileIndex），1号（FileSHA256），2～20000（Common），还是20001（Root）？御坂如此问道。')
-print('#0=I,#1=S,#2~20000=C,#20001=R，御坂御坂如此补充道。')
-inp = input('MISAKA#20001>')
-t = inp #t：Type。
-if (t == 'I'):
-    print('您把这台设备的类型设置为了FileIndex，我会带你到另一个.py文件进行设置。')
-    os.system('python sister_index/config.py')
-elif (t == 'S'):
-    print('您把这台设备的类型设置为了FileSHA256，我会带你到另一个.py文件进行设置。')
-    os.system('python sister_sha256/config.py')
-elif (t == 'C'):
-    print('您把这台设备的类型设置为了CommonNode，我会带你到另一个.py文件进行设置。')
-    os.system('python sister_common/config.py')
-elif (t == 'R'):
-    print('您把这台设备的类型设置为了Root，我会带你到另一个.py文件进行设置。')
-    os.system('python sister_20001/config.py')
-else:
-    print('QAQ 我好似无法理解您的选择呢。御坂御坂抱歉地说到。')
-    exit("ERROR::NO_SUCH_OPTION")
 
+def new_conf():
+    print('[I]将会生成配置文件夹及内部文件。御坂御坂如此说到。')
+    os.mkdir('conf')
+    os.mknod('/conf/port')
+    port = open('/conf/port','w')
+    port.write('666')
+    port.close()
+    os.mknod('/conf/passwd')
+    os.mknod('/conf/ban_order')
+    os.mknod('/conf/allow_host')
+    print('[I]将会生成临时文件夹。御坂御坂如此说到。')
+    os.mkdir('temp')
+    print('[I]以下是文件说明。御坂御坂如此说到。')
+    print('port决定端口，默认为666。')
+    print('passwd文件可以用一个简单的密码防止未授权连接（目前并不可靠，明文传输）。')
+    print('ban_order中，凡是接收到的任务中含有里面的指令，将无条件拒绝接受。需要手工启用（通过创建ubo.lck在conf中）')
+    print('allow_host中存放允许建立连接的主机的IP。')
+    print('以上文件均位于“conf”文件夹中。')
+    os.mknod('ready.lck')
+    ready = open('ready.lck','w')
+    ready.write("RealMisakaNetwork Ready Lock, DONOT Delete! VER=ALPHA-1")
+    ready.close()
+def already_ready():
+    print('已有ready,lck！不允许再次运行此向导！御坂御坂如此说到。')
+    exit('ERR::EXISTS::READY_LCK')
+print('[I]欢迎来到初次运行向导！御坂御坂如此表示欢迎。')
+
+if (os.path.isfile('ready.lck') == False):
+    new_conf()
+else:
+    already_ready()
