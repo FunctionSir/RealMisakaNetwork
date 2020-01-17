@@ -21,6 +21,7 @@ def no_ready_lck():
 def rock_it():
     print('[I]看起来一切就绪，即将启动！御坂御坂如此回报到。')
     print('[I]Start [Sister]')
+    os.system('python sister.py')
 
 if (os.path.isfile('ready.lck') == False):
     no_ready_lck()
