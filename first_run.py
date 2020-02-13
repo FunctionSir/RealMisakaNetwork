@@ -15,6 +15,7 @@ set_c = ['0','1','2','3','4','5','6','7','8','9','=','{','}']
 set_d = ['i','really','love','misaka','mikoto','!','---byfs']
 
 def new_conf():
+    ready_info = "RealMisakaNetwork Ready Lock, DONOT Delete! VER=ALPHA-1"
     print('[I]将会生成配置文件夹及内部文件。御坂御坂如此说到。')
     os.mkdir('conf')
     os.mknod('conf/port')
@@ -40,7 +41,7 @@ def new_conf():
     print('[I]以上文件均位于“conf”文件夹中。')
     os.mknod('ready.lck')
     ready = open('ready.lck','w')
-    ready.write("RealMisakaNetwork Ready Lock, DONOT Delete! VER=ALPHA-1")
+    ready.write(ready_info)
     ready.close()
     print('恭喜你，看似成功完成了！御坂御坂欢快的说到。')
 
