@@ -5,14 +5,16 @@ License: AGPL
 File Description:
 Sister的。
 '''
+def fileread(which):
+    f = open(which,'r')
+    r = f.read()
+    f.close()
+    return r
 def read_conf():
     say = '御坂如此汇报道。'
-    f = open('conf/port','r')
-    port = int(f.read())
-    f.close()
+    port = int(fileread('conf/port'))
     print('端口设置为',port,say)
-    f = open('conf/passwd','r')
-    passwd = f.read()
+    passwd = fileread('conf/passwd')
     f.close()
     if (os.path.isfile('conf/allow_all.lck') == False):
         allow_all = False
