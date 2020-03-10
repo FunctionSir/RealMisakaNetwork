@@ -5,25 +5,31 @@ License: AGPL
 File Description:
 Sister的。
 '''
-def fileread(which):
-    f = open(which,'r')
-    r = f.read()
-    f.close()
-    return r
+import os
+import shutil
+import mfio
+import mbinf
+say = '御坂如此汇报道。'
+
+allow_all = False
+port = 666
+allow = ['*']
+
 def read_conf():
-    say = '御坂如此汇报道。'
-    port = int(fileread('conf/port'))
+    global allow_all
+    global port
+    global allow
+    port = int(mfio.fileread('conf/port'))
     print('端口设置为',port,say)
-    passwd = fileread('conf/passwd')
-    f.close()
+    passwd = mfio.fileread('conf/passwd')
     if (os.path.isfile('conf/allow_all.lck') == False):
         allow_all = False
         f = open('conf/allow_host','r')
-        allow_host = set(f.readlines())
+        allow = set(f.readlines())
         f.close()
     else:
+        print('[I]存在ALLOW_ALL的锁。允许所有。')
         allow_all = True
-    f = open('conf/allow_host')
-    allow = f.readlines()
     print('你允许',allow,'连接本妹妹。'+say)
+
 read_conf()

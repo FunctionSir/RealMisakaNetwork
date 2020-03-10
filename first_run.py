@@ -10,6 +10,8 @@ import random
 import time
 import hashlib
 import shutil
+import mfio
+import mbinf
 
 # 密码靠以下四个生成，均可随意改动。
 set_a = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'q', 'w', 'r', 'e', 'o', 's']
@@ -17,36 +19,19 @@ set_b = ['#', '%', '&', '+', '*', '/', 'l', 't', 'm', 'z', '.', 'h', 'i']
 set_c = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '=', '{', '}']
 set_d = ['i', 'really', 'love', 'misaka', 'mikoto', '!', '---byfs']
 
-ver = 'A1'  # 版本
-
-
-def candmdir(what):
-    if os.path.isdir(what):
-        print('[W]文件夹', what, '已存在，删除。')
-        shutil.rmtree(what)
-    os.mkdir(what)
-
-
-def candmnod(what):
-    if os.path.isfile(what):
-        print('[W]文件', what, '已存在，删除。')
-        os.remove(what)
-    os.mknod(what)
-
-
 def new_conf():
     ready_info = "RealMisakaNetwork Ready Lock, DONOT Delete!"
     print('[I]将会生成配置文件夹及内部文件。御坂御坂如此说到。')
-    candmdir('conf')
-    candmnod('conf/port')
+    mfio.candmdir('conf')
+    mfio.candmnod('conf/port')
     port = open('conf/port', 'w')
     port.write('666')
     port.close()
-    candmnod('conf/passwd')
-    candmnod('conf/allow_host')
-    candmnod('conf/this')
+    mfio.candmnod('conf/passwd')
+    mfio.candmnod('conf/allow_host')
+    mfio.candmnod('conf/this')
     print('[I]将会生成临时文件夹。御坂御坂如此说到。')
-    candmdir('temp')
+    mfio.candmdir('temp')
     print('[I]以下是文件说明。御坂御坂如此说到。')
     print('[I]port决定端口，默认为666。')
     print('[I]this三行，内有这个妹妹的信息，行1：编号，行2：名字，行3：身份SHA256号（不要更改它）。')
@@ -79,15 +64,16 @@ def new_conf():
     pwd = open('conf/passwd', 'w')
     pwd.write(passwd)
     pwd.close()
+    mfio.candmnod('conf/allow_all.lck')
     print('[I]密码被设定为[', passwd, ']')
-    print('[I]allow_host中存放允许建立连接的主机的IP。注意：在存在allow_all.lck时，只要passwd正确即可连接。')
+    print('[I]allow_host中存放允许建立连接的主机的IP。注意：在存在allow_all.lck时，只要passwd正确即可连接。默认存在allow_all.lck。')
     print('[I]以上文件均位于“conf”文件夹中。')
     print('[I]将会属于这个妹妹的连接文件：', num+'.link',
           '，可以把它复制到各个属于这个网络的妹妹的link文件夹内，以进行连接。')
-    candmnod(num+'.link')
+    mfio.candmnod(num+'.link')
     head = '$RMN-LINK-FILE'
     link_file = [head, ]
-    candmnod('ready.lck')
+    mfio.candmnod('ready.lck')
     ready = open('ready.lck', 'w')
     ready.write(ready_info)
     ready.close()
