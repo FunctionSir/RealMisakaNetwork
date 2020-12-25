@@ -11,13 +11,13 @@ import time
 import hashlib
 import shutil
 import mfio
-import mbinf
+import minf
 
 # 密码靠以下四个生成，均可随意改动。
-set_a = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'q', 'w', 'r', 'e', 'o', 's']
-set_b = ['#', '%', '&', '+', '*', '/', 'l', 't', 'm', 'z', '.', 'h', 'i']
+set_a = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'q', 'w', 'r', 'x', 'o', 's']
+set_b = ['#', '%', '&', '+', '*', '/', 'l', 't', 'm', 'z', '.', '<', '>']
 set_c = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '=', '{', '}']
-set_d = ['i', 'really', 'love', 'misaka', 'mikoto', '!', '---byfs']
+set_d = ['i', 'h', 'j', 'k', 'n','y','u','v','~','0','0','0','0','0','0']
 
 def new_conf():
     ready_info = "RealMisakaNetwork Ready Lock, DONOT Delete!"
@@ -35,6 +35,7 @@ def new_conf():
     print('[I]以下是文件说明。御坂御坂如此说到。')
     print('[I]port决定端口，默认为666。')
     print('[I]this三行，内有这个妹妹的信息，行1：编号，行2：名字，行3：身份SHA256号（不要更改它）。')
+    print('[I]编号实际是字符串，所以字母甚至特殊符号也是允许的。')
     num = input('编号>')
     name = input('名字>')
     random.seed(time.time())
@@ -71,8 +72,8 @@ def new_conf():
     print('[I]将会属于这个妹妹的连接文件：', num+'.link',
           '，可以把它复制到各个属于这个网络的妹妹的link文件夹内，以进行连接。')
     mfio.candmnod(num+'.link')
-    head = '$RMN-LINK-FILE'
-    link_file = [head, ]
+    
+    link_file = [minf.lfhead+'\n',minf.ver+'\n']
     mfio.candmnod('ready.lck')
     ready = open('ready.lck', 'w')
     ready.write(ready_info)
@@ -85,5 +86,5 @@ print('[I]欢迎来到初次运行向导！御坂御坂如此表示欢迎。')
 if (os.path.isfile('ready.lck') == False):
     new_conf()
 else:
-    print('[W]已有ready,lck！御坂御坂如此说到。重新生成代表本妹妹将被清空配置文件！')
+    print('[W]已有ready,lck！御坂御坂如此说到。重新生成代表本妹妹NODE将被清空配置文件！')
     new_conf()

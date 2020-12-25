@@ -1,0 +1,5 @@
+/conf
+/temp
+/__pycache__
+*.link
+*.lck
