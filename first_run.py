@@ -52,8 +52,9 @@ def new_conf():
     )
     sha256.update(tmp.encode())
     ident = sha256.hexdigest()
+    print("[I]身份SHA256："+ident)
     this = open('conf/this', 'w')
-    this.writelines([num+'\n', name+'\n', ident+'\n'])
+    this.writelines([num+'\n', name+'\n', ident+'\n']) #this文件：格式：3行，为编号，名字，身份码
     this.close()
     print('[I]passwd文件可以用一个简单的密码防止未授权连接（目前并不可靠，明文传输）。')
     passwd = 'pc'  # 密码生成部分可以更改。
@@ -67,20 +68,21 @@ def new_conf():
     pwd.close()
     mfio.candmnod('conf/allow_all.lck')
     print('[I]密码被设定为[', passwd, ']')
+    ip=input('请输入本机IP地址或域名：')
     print('[I]allow_host中存放允许建立连接的主机的IP。注意：在存在allow_all.lck时，只要passwd正确即可连接。默认存在allow_all.lck。')
     print('[I]以上文件均位于“conf”文件夹中。')
     print('[I]将会属于这个妹妹的连接文件：', num+'.link',
           '，可以把它复制到各个属于这个网络的妹妹的link文件夹内，以进行连接。')
+    mfio.candmdir('link')
     mfio.candmnod(num+'.link')
-    
-    link_file = [minf.lfhead+'\n',minf.ver+'\n']
+    link_file = [minf.lfhead+'\n',minf.ver+'\n',ip+'\n',ident+'\n']
+    mfio.filewrite(num+'.link',link_file)
     mfio.candmnod('ready.lck')
     ready = open('ready.lck', 'w')
     ready.write(ready_info)
     ready.close()
     print('[I]生成锁成功。')
     print('[I]恭喜你，看似成功完成了！御坂御坂欢快的说到。')
-
 
 print('[I]欢迎来到初次运行向导！御坂御坂如此表示欢迎。')
 if (os.path.isfile('ready.lck') == False):

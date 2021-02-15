@@ -8,7 +8,7 @@ Sister的。
 import os
 import shutil
 import mfio
-import mbinf
+import minf
 say = '御坂如此汇报道。'
 
 allow_all = False
@@ -30,6 +30,6 @@ def read_conf():
     else:
         print('[I]存在ALLOW_ALL的锁。允许所有。')
         allow_all = True
-    print('你允许',allow,'连接本妹妹。'+say)
+    print('你允许',allow,'连接。'+say)
 
 read_conf()
