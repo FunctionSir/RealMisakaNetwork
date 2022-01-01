@@ -1,29 +1,20 @@
 '''
-The Project-RealMisakaNetwork
-Version: alpha-1
-License: AGPL
-File Description:
-启动Python脚本，启动器。
+Author: FunctionSir
+Date: 2022-01-01 15:08:40
+LastEditTime: 2022-01-01 17:00:42
+LastEditors: FunctionSir
+Description: 启动器
+FilePath: /RealMisakaNetwork/start.py
 '''
 import os
+import cpsc
+import ufio
+import colorama
+from colorama import Fore, Back, Style
+colorama.init(autoreset=True)
 
-def no_ready_lck():
-    print('[E]糟糕！缺失就绪锁，您可能没有运行第一次运行向导，运行吗？御坂御坂如此问道。')
-    print('[I]不运行请输入“-”，回车，然后会退出，或输入任何字符然后继续。御坂御坂如此等待您的输入。')
-    print('[I]Tip: 如果确定配置无误，你可以退出后手动创建ready.lck。')
-    choice = input('TOUMA>')
-    if (choice != '-' ):
-        os.system('python first_run.py')
-    else:
-        print('肥肠抱歉，遇到严重错误：无法找到就绪锁。御坂御坂抱歉的说到。')
-        exit('ERR::MISS::READY_LCK')
-
-def rock_it():
-    print('[I]看起来一切就绪，即将启动！御坂御坂如此回报到。')
-    print('[I]Start [Sister]')
-    os.system('python sister.py')
-
-if (os.path.isfile('ready.lck') == False):
-    no_ready_lck()
-else:
-    rock_it()
+if not os.path.isfile(ufio.path_proc("lock/ready.lck", False)):
+    print(Style.BRIGHT+Fore.RED+"未找到\"" +
+          ufio.path_proc("lock/ready.lck", False)+"\"，无法继续。")
+    print(Fore.CYAN+"若为第一次运行，请运行第一次运行向导firstRun.py。")
+    print(Fore.CYAN+"若确定只是此文件缺失，请手动创建之。")
