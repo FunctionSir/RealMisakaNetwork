@@ -1,7 +1,7 @@
 <!--
  * @Author: FunctionSir
  * @Date: 2022-01-01 14:57:51
- * @LastEditTime: 2022-01-01 15:08:23
+ * @LastEditTime: 2022-01-01 17:18:40
  * @LastEditors: FunctionSir
  * @Description: README file
  * @FilePath: /RealMisakaNetwork/README.md
@@ -19,4 +19,4 @@
 
 ## 开发为啥这么慢
 
-鄙人技术不咋地，又受制于学业原因，往往只能两周左右写一些代码。
+鄙人技术不咋地，又受制于学业原因，往往只能每两周左右写一次代码。
