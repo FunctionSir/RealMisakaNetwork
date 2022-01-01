@@ -1,7 +1,7 @@
 '''
 Author: FunctionSir
 Date: 2021-09-21 19:06:36
-LastEditTime: 2022-01-01 15:29:44
+LastEditTime: 2022-01-01 17:41:04
 LastEditors: FunctionSir
 Description: UniversalFilesIO 通用文件IO
 FilePath: /RealMisakaNetwork/ufio.py
