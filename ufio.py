@@ -1,7 +1,7 @@
 '''
 Author: FunctionSir
 Date: 2021-09-21 19:06:36
-LastEditTime: 2022-01-01 17:41:04
+LastEditTime: 2022-01-28 23:28:18
 LastEditors: FunctionSir
 Description: UniversalFilesIO 通用文件IO
 FilePath: /RealMisakaNetwork/ufio.py
@@ -27,19 +27,53 @@ def path_proc(path, slashAtEnd):
     return r
 
 
-def new(path, name, overWritten):
-    if overWritten and os.path.isfile(path_proc(path, True)+name):
+def new(path, name, overWrite):
+    if overWrite and os.path.isfile(path_proc(path, True)+name):
         cpsc.rmfile(path, name)
     r = cpsc.mkfile(path, name)
     return r
 
 
-def read_lines(path, name, lineEnds):
+def read_lines(path, name, keepEnds):
     r = -32768
     file = path_proc(path, True)+name
     if not os.path.isfile(file):
         return r
     else:
         temp = open(file)
-        r = temp.read().splitlines(lineEnds)
+        r = temp.read().splitlines(keepEnds)
+    temp.close()
+    return r
+
+
+'''
+对函数"write_lines"的部分说明：
+当addEnds=0时，不对strList做任何处理，
+当addEnds=1时，将会对strList中的每个字符串末尾加入\n，
+当addEnds=其他值时，将会自动按照末尾为\n则不加，非\n则加\n的策略对strList中的每个字符串做处理。
+'''
+
+
+def write_lines(path, name, overWrite, strList, addEnds):
+    r = -32768
+    j = 0
+    file = path_proc(path, True)+name
+    if overWrite == True:
+        temp = open(file, "w")
+    else:
+        temp = open(file, "a")
+    if addEnds == 0:
+        pass
+    elif addEnds == 1:
+        for i in strList:
+            strList[j] = i + "\n"
+            j = j+1
+    else:
+        for i in strList:
+            if i[-1] != "\n":
+                strList[j] = i + "\n"
+            j = j+1
+    temp.writelines(strList)
+    temp.close()
+    r = 0
     return r
