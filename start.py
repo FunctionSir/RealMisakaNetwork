@@ -1,7 +1,7 @@
 '''
 Author: FunctionSir
 Date: 2022-01-01 15:08:40
-LastEditTime: 2022-01-01 21:47:39
+LastEditTime: 2022-01-28 23:49:23
 LastEditors: FunctionSir
 Description: 启动器
 FilePath: /RealMisakaNetwork/start.py
@@ -11,14 +11,14 @@ import os
 import colorama
 import cpsc
 import ufio
-import pd
+import staticRes
 from colorama import Fore, Back, Style
 colorama.init(autoreset=True)
 unitName = "启动器"
-print(Fore.MAGENTA+pd.asciiMisaka)
-print(Fore.GREEN+pd.asciiNetwork)
-print("The "+pd.name+" Project - " + unitName)
-print("版本："+pd.ver+" 版本代号："+pd.verCodename)
+print(Fore.MAGENTA + staticRes.ASCIIMisaka)
+print(Fore.GREEN + staticRes.ASCIINetwork)
+print("The " + staticRes.projectName+" Project - " + unitName)
+print("版本：" + staticRes.ver+" 版本代号：" + staticRes.verCodename)
 if not os.path.isfile(ufio.path_proc("lock/ready.lck", False)):
     print(Style.BRIGHT+Fore.RED+"未找到\"" +
           ufio.path_proc("lock/ready.lck", False) + "\"，无法继续。")
