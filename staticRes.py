@@ -1,7 +1,7 @@
 '''
 Author: FunctionSir
 Date: 2022-01-01 18:09:52
-LastEditTime: 2022-02-12 20:52:19
+LastEditTime: 2022-02-15 19:19:03
 LastEditors: FunctionSir
 Description: 版本信息等静态资源
 FilePath: /RealMisakaNetwork/staticRes.py
@@ -26,8 +26,8 @@ strNGA = "\n\n\n(・∀・)this String is Never Gonna to Appear(・∀・)\n木�
 '''
 默认配置文件内容部分
 '''
-deafultPythonConfFileContent = ["python = \"python\" \n"]
-deafultWgetlConfFileContent = ["wgetDownload = \"wget -c\" \n"]
+deafultPythonConfFileContent = ["python = \"python3\" \n"]
+deafultWgetConfFileContent = ["wgetDownload = \"wget -c\" \n"]
 deafultCurlConfFileContent = ["curlDownload = \"curl -C -O\" \n", "\'\'\'\n$URL$：miniserve生成的“\\”页面的URL，末尾有反斜杠。\n$PATH$:将文件上传到的目录。\n\'\'\'\n",
                               "curlUpload = \"curl -F \"path=@$FILE$\" $URL$upload\\?path\\=$PATH$\" #对miniserve的上传可见此处参考的miniserve的READNE.md\n"]
 deafultMiniserveConfFileContent = []

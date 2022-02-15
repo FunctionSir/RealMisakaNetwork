@@ -1,7 +1,7 @@
 '''
 Author: FunctionSir
 Date: 2022-01-01 17:48:44
-LastEditTime: 2022-02-15 11:06:49
+LastEditTime: 2022-02-15 22:45:58
 LastEditors: FunctionSir
 Description: 首次运行向导
 FilePath: /RealMisakaNetwork/firstRun.py
@@ -14,10 +14,11 @@ import ufio
 import staticRes
 from colorama import Fore, Back, Style
 colorama.init(autoreset=True)
-print(Fore.GREEN+"欢迎来到第一次运行向导!")
+unitName = "第一次运行向导"
+print(Fore.GREEN+"欢迎来到", unitName)
 print(Fore.CYAN+"您可以输入R来")
 print(Fore.RED+Style.BRIGHT+"警告:若之前存在配置等,将可能会被清除!")
-if input("[要继续,请输入「EXEC」（区分大小写）]>") == "EXEC":
+if input("[要继续,请输入「EXEC」(区分大小写)]>") == "EXEC":
     print("第1阶段:创建必要的文件夹.")
     print("配置文件夹conf:")
     cpsc.mkdir("", "conf")
@@ -50,7 +51,7 @@ if input("[要继续,请输入「EXEC」（区分大小写）]>") == "EXEC":
     print("第3阶段:写入设置("+Fore.RED+Style.BRIGHT+"注意原有设置会丢失"+Style.RESET_ALL+").")
     print("小贴士:直接回车或仅输入\"#\"则会使用默认值.")
     temp = ""
-    temp = input("要使用的用以运行Python3的命令:")
+    temp = input("要使用的用以运行Python3的命令>>>")
     if temp == "#" or temp == "":
         temp = staticRes.deafultPythonConfFileContent
         print("使用默认值,要写入的内容是:", temp)
@@ -58,6 +59,14 @@ if input("[要继续,请输入「EXEC」（区分大小写）]>") == "EXEC":
     else:
         ufio.write_lines("conf", "python.conf.py", 1, ("python = "+str(temp)).split(
             staticRes.strNGA+staticRes.strNGA+staticRes.strNGA), 2)
-
+    print("GNU Wget设置将使用默认值(一般不需要更改).")
+    temp = staticRes.deafultWgetConfFileContent
+    print("使用默认值,要写入的内容是:", temp)
+    ufio.write_lines("conf", "wget.conf.py", 1, temp, 2)
+    print("GNU cURL设置将使用默认值(一般不需要更改, 除非您不使用默认的miniserve做为HTTP(S)服务器).")
+    temp = staticRes.deafultCurlConfFileContent
+    print("使用默认值,要写入的内容是:", temp)
+    ufio.write_lines("conf", "curl.conf.py", 1, temp, 2)
+    print("接下来设置妹妹(节点).")
 else:
     print(Fore.GREEN + "操作已取消")
