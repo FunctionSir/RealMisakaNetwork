@@ -1,7 +1,7 @@
 '''
 Author: FunctionSir
 Date: 2021-09-21 19:06:36
-LastEditTime: 2022-01-28 23:28:18
+LastEditTime: 2022-02-08 23:00:32
 LastEditors: FunctionSir
 Description: UniversalFilesIO 通用文件IO
 FilePath: /RealMisakaNetwork/ufio.py
@@ -47,7 +47,7 @@ def read_lines(path, name, keepEnds):
 
 
 '''
-对函数"write_lines"的部分说明：
+对函数"write_lines(path, name, overWrite, strList, addEnds)"的部分说明：
 当addEnds=0时，不对strList做任何处理，
 当addEnds=1时，将会对strList中的每个字符串末尾加入\n，
 当addEnds=其他值时，将会自动按照末尾为\n则不加，非\n则加\n的策略对strList中的每个字符串做处理。
