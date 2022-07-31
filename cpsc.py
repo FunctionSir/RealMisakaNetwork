@@ -1,15 +1,15 @@
 '''
 Author: FunctionSir
 Date: 2021-09-21 09:35:07
-LastEditTime: 2022-03-05 15:29:49
+LastEditTime: 2022-07-29 15:13:37
 LastEditors: FunctionSir
 Description: CrossPlatformSystemCommands，自动判断操作系统的系统并执行指令
-FilePath: /RealMisakaNetwork/CPSC.py
+FilePath: /RealMisakaNetwork/cpsc.py
 '''
 
 import os
 import platform
-import UFIO
+import ufio
 
 
 def is_win():
@@ -40,7 +40,7 @@ def clear():
 
 def mkfile(path, name):
     r = -32768
-    path = UFIO.path_proc(path, True)
+    path = ufio.path_proc(path, True)
     winCmd = "copy nul " + path + name
     POSIXCmd = "touch " + path + name
     if is_win():
@@ -52,7 +52,7 @@ def mkfile(path, name):
 
 def mkdir(path, name):
     r = -32768
-    path = UFIO.path_proc(path, True)
+    path = ufio.path_proc(path, True)
     winCmd = "mkdir " + path + name
     POSIXCmd = "mkdir " + path + name
     if is_win():
@@ -64,7 +64,7 @@ def mkdir(path, name):
 
 def rmfile(path, name):
     r = -32768
-    path = UFIO.path_proc(path, True)
+    path = ufio.path_proc(path, True)
     winCmd = "del " + path + name
     POSIXCmd = "rm " + path + name
     if is_win():
@@ -87,7 +87,7 @@ def ping(dest):
 
 def more(path, name):
     r = -32768
-    path = UFIO.path_proc(path, True)
+    path = ufio.path_proc(path, True)
     winCmd = "more " + path + name
     POSIXCmd = "more " + path + name
     if is_win():

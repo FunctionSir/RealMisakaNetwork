@@ -9,17 +9,17 @@ FilePath: /RealMisakaNetwork/UFIO.py
 
 from math import isfinite
 import os
-import CPSC
+import cpsc
 
 
 def path_proc(path, slashAtEnd):
     if path != "":
-        if CPSC.is_win():
+        if cpsc.is_win():
             path = path.replace("/", "\\")
         else:
             path = path.replace("\\", "/")
         if slashAtEnd and path[-1] != "/" and path[-1] != "\\":
-            if CPSC.is_win():
+            if cpsc.is_win():
                 path = path + "\\"
             else:
                 path = path + "/"
@@ -29,8 +29,8 @@ def path_proc(path, slashAtEnd):
 
 def new(path, name, overWrite):
     if overWrite and os.path.isfile(path_proc(path, True)+name):
-        CPSC.rmfile(path, name)
-    r = CPSC.mkfile(path, name)
+        cpsc.rmfile(path, name)
+    r = cpsc.mkfile(path, name)
     return r
 
 
