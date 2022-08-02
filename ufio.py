@@ -1,10 +1,10 @@
 '''
 Author: FunctionSir
 Date: 2021-09-21 19:06:36
-LastEditTime: 2022-03-05 15:30:28
+LastEditTime: 2022-08-02 20:39:44
 LastEditors: FunctionSir
-Description: UniversalFilesIO 通用文件IO
-FilePath: /RealMisakaNetwork/UFIO.py
+Description: UniversalFileIO 通用文件IO
+FilePath: /RealMisakaNetwork/ufio.py
 '''
 
 from math import isfinite
@@ -40,7 +40,7 @@ def read_lines(path, name, keepEnds):
     if not os.path.isfile(file):
         return r
     else:
-        temp = open(file)
+        temp = open(file, "r")
         r = temp.read().splitlines(keepEnds)
     temp.close()
     return r
@@ -57,11 +57,18 @@ def read_lines(path, name, keepEnds):
 def write_lines(path, name, overWrite, strList, addEnds):
     r = -32768
     j = 0
+    flag = False
     file = path_proc(path, True)+name
     if overWrite == True:
         temp = open(file, "w")
     else:
+        temp = open(file, "r")
+        if temp.readlines[-1][-1] != "\n":
+            flag = True
+        temp.close()
         temp = open(file, "a")
+        if flag == True:
+            temp.writelines(["\n"])
     if addEnds == 0:
         pass
     elif addEnds == 1:
