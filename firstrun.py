@@ -1,7 +1,7 @@
 '''
 Author: FunctionSir
 Date: 2022-01-01 17:48:44
-LastEditTime: 2022-08-02 23:22:54
+LastEditTime: 2022-08-03 23:25:31
 LastEditors: FunctionSir
 Description: 首次运行向导
 FilePath: /RealMisakaNetwork/firstrun.py
@@ -21,8 +21,8 @@ colorama.init(autoreset=True)
 UNIT_NAME = "第一次运行向导"  # 你可以自由更改这个组件的显示名称而不用更改文件名, 这样可以避免很多麻烦.
 DIRS = ["conf", "data", "lock", "temp"]
 DIRS_USAGE = ["配置", "数据", "锁", "临时"]
-CONF_FILES = ["python.conf.py", "netcat.conf.py", "miniserve.conf.py",
-              "wget.conf.py", "curl.conf.py", "sister.conf.py"]
+CONF_FILES = ["python.py", "netcat.py", "miniserve.py",
+              "wget.py", "curl.py", "sister.py"]
 CONF_USAGE = ["Python", "NetCat", "Miniserve", "Wget", "cURL", "妹妹(节点)"]
 
 
@@ -37,9 +37,8 @@ def gen_conf_file(fileName, usage):
 
 
 print(Fore.GREEN+"欢迎来到", UNIT_NAME)
-print(Fore.CYAN+"您可以输入R来")
 print(Fore.RED+Style.BRIGHT+"警告:若之前存在配置等,将可能会被清除!")
-if input("[要继续,请输入「EXEC」(区分大小写)]>") == "EXEC":
+if input("[要继续,请输入「EXEC」(区分大小写)]\n>>> ") == "EXEC":
 
     print("第1阶段:创建必要的文件夹.")
     i, j = 0, 0
@@ -50,13 +49,14 @@ if input("[要继续,请输入「EXEC」(区分大小写)]>") == "EXEC":
     print("第2阶段:创建必要的配置文件.")
     i, j = 0, 0
     for i in CONF_FILES:
-        gen_dir(i, CONF_USAGE[j])
+        gen_conf_file(i, CONF_USAGE[j])
         j = j + 1
 
     i, j = 0, 0
 
     print("第3阶段:写入设置("+Fore.RED+Style.BRIGHT+"注意原有设置会丢失"+Style.RESET_ALL+").")
-    print("小贴士:直接回车或仅输入\"#\"则会使用默认值.")
+    print("小贴士:直接回车或仅输入\"#\"则会使用默认值.\n"+Fore.GREEN +
+          "注意: 若要写入默认值, 则将写入的内容将以list形式展示, 请不要惊慌.")
 
     '''
     来自ufio.py:
@@ -70,41 +70,41 @@ if input("[要继续,请输入「EXEC」(区分大小写)]>") == "EXEC":
     temp = input("要使用的用以运行Python 3的命令\n>>> ")
     if temp == "#" or temp == "":
         temp = StaticRes.DEAFULT_PYTHON_CONF_FILE_CONTENT
-        print("使用默认值,要写入的内容是:", temp)
-        ufio.write_lines("conf", "python.conf.py", 1, temp, 2)
+        print("使用默认值, 要写入的内容是:", temp)
+        ufio.write_lines("conf", "python.py", 1, temp, 2)
     else:
-        ufio.write_lines("conf", "python.conf.py", 1, ("python = "+str(temp)).split(
-            StaticRes.strNGA+StaticRes.strNGA+StaticRes.strNGA), 2)
+        ufio.write_lines("conf", "python.py", 1, ("python = "+str(temp)).split(
+            StaticRes.STR_NGA+StaticRes.STR_NGA+StaticRes.STR_NGA), 2)
 
     temp = ""
     temp = input("要使用的用以运行netcat的命令\n>>> ")
     if temp == "#" or temp == "":
         temp = StaticRes.DEAFULT_NETCAT_CONF_FILE_CONTENT
-        print("使用默认值,要写入的内容是:", temp)
-        ufio.write_lines("conf", "netcat.conf.py", 1, temp, 2)
+        print("使用默认值, 要写入的内容是:", temp)
+        ufio.write_lines("conf", "netcat.py", 1, temp, 2)
     else:
-        ufio.write_lines("conf", "netcat.conf.py", 1, ("netcat = "+str(temp)).split(
-            StaticRes.strNGA+StaticRes.strNGA+StaticRes.strNGA), 2)
+        ufio.write_lines("conf", "netcat.py", 1, ("netcat = "+str(temp)).split(
+            StaticRes.STR_NGA+StaticRes.STR_NGA+StaticRes.STR_NGA), 2)
 
     temp = ""
     temp = input("要使用的用以运行Miniserve的命令\n>>> ")
     if temp == "#" or temp == "":
         temp = StaticRes.DEAFULT_MINISERVE_CONF_FILE_CONTENT
-        print("使用默认值,要写入的内容是:", temp)
-        ufio.write_lines("conf", "miniserve.conf.py", 1, temp, 2)
+        print("使用默认值, 要写入的内容是:", temp)
+        ufio.write_lines("conf", "miniserve.py", 1, temp, 2)
     else:
-        ufio.write_lines("conf", "miniserve.conf.py", 1, ("miniserve = "+str(temp)).split(
-            StaticRes.strNGA+StaticRes.strNGA+StaticRes.strNGA), 2)
+        ufio.write_lines("conf", "miniserve.py", 1, ("miniserve = "+str(temp)).split(
+            StaticRes.STR_NGA+StaticRes.STR_NGA+StaticRes.STR_NGA), 2)
 
     print("GNU Wget设置将使用默认值(一般不需要更改).")
     temp = StaticRes.DEAFULT_WGET_CONF_FILE_CONTENT
-    print("使用默认值,要写入的内容是:", temp)
-    ufio.write_lines("conf", "wget.conf.py", 1, temp, 2)
+    print("使用默认值, 要写入的内容是:", temp)
+    ufio.write_lines("conf", "wget.py", 1, temp, 2)
 
     print("GNU cURL设置将使用默认值(一般不需要更改, 除非您不使用默认的Miniserve作为HTTP(S)服务器).")
     temp = StaticRes.DEAFULT_CURL_CONF_FILE_CONTENT
-    print("使用默认值,要写入的内容是:", temp)
-    ufio.write_lines("conf", "curl.conf.py", 1, temp, 2)
+    print("使用默认值, 要写入的内容是:", temp)
+    ufio.write_lines("conf", "curl.py", 1, temp, 2)
 
     print("接下来设置妹妹(节点).")
     sisterSN = input(
@@ -118,9 +118,10 @@ if input("[要继续,请输入「EXEC」(区分大小写)]>") == "EXEC":
                               "sisterName = \"" + sisterName + "\"",
                               "sisterCmdInPort = " + sisterCmdInPort,
                               "sisterFileSharePort = " + sisterFileSharePort]
-    ufio.write_lines("conf", "sister.conf.py", 1, finalSisterConfContent, 2)
+    ufio.write_lines("conf", "sister.py", 1, finalSisterConfContent, 2)
 
-    temp = input(Fore.GREEN + "配置已完成, 输入Y/y以审阅.\n>>> ")
+    temp = input(
+        Fore.GREEN + "配置已完成.\n"+Style.RESET_ALL+"要审阅配置文件, 输入Y/y(在每个文件审阅结束后请按q退出).\n>>> ")
     if temp == "Y" or temp == "y":
         for i in CONF_FILES:
             input("按下回车来审阅"+ufio.path_proc("conf/"+i, False)+"...")

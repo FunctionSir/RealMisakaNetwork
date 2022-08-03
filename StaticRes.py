@@ -1,11 +1,11 @@
 '''
 Author: FunctionSir
 Date: 2022-01-01 18:09:52
-LastEditTime: 2022-08-02 20:50:02
+LastEditTime: 2022-08-03 23:21:08
 LastEditors: FunctionSir
 Description: 版本信息等静态资源
-FilePath: /RealMisakaNetwork/StaticRes.py
 Note: 此文件仅充当资源库
+FilePath: /RealMisakaNetwork/StaticRes.py
 '''
 
 '''

@@ -137,5 +137,7 @@ dmypy.json
 # Misc
 conf/
 temp/
+lock/
+data/
 *.link
 *.lck
