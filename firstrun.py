@@ -1,7 +1,7 @@
 '''
 Author: FunctionSir
 Date: 2022-01-01 17:48:44
-LastEditTime: 2022-08-03 23:25:31
+LastEditTime: 2022-08-04 22:06:55
 LastEditors: FunctionSir
 Description: 首次运行向导
 FilePath: /RealMisakaNetwork/firstrun.py

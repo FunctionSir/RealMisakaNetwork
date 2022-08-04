@@ -1,7 +1,7 @@
 '''
 Author: FunctionSir
 Date: 2022-01-01 18:09:52
-LastEditTime: 2022-08-03 23:21:08
+LastEditTime: 2022-08-04 22:07:38
 LastEditors: FunctionSir
 Description: 版本信息等静态资源
 Note: 此文件仅充当资源库
@@ -34,5 +34,5 @@ DEAFULT_PYTHON_CONF_FILE_CONTENT = ["python = \"python3\"\n"]
 DEAFULT_NETCAT_CONF_FILE_CONTENT = ["netcat = \"nc\"\n"]
 DEAFULT_WGET_CONF_FILE_CONTENT = ["wgetDownload = \"wget -c\"\n"]
 DEAFULT_CURL_CONF_FILE_CONTENT = ["curlDownload = \"curl -C -O\"\n", "\'\'\'\n$URL$: miniserve生成的“\\”页面的URL, 末尾有反斜杠.\n$PATH$:将文件上传到的目录.\n\'\'\'\n",
-                                  "curlUpload = \"curl -F \"path=@$FILE$\" $URL$upload\\?path\\=$PATH$\" #对miniserve的上传可见此处参考的miniserve的READNE.md\n"]
+                                  "curlUpload = \"curl -F path=@$FILE$ $URL$upload\\?path\\=$PATH$\" #对miniserve的上传可见此处参考的miniserve的READNE.md\n"]
 DEAFULT_MINISERVE_CONF_FILE_CONTENT = ["miniserve = \"miniserve\"\n"]
