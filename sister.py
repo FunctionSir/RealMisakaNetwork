@@ -1,13 +1,13 @@
 '''
 Author: FunctionSir
 Date: 2022-03-05 17:38:02
-LastEditTime: 2022-08-04 22:40:34
+LastEditTime: 2022-08-07 00:10:06
 LastEditors: FunctionSir
 Description: 妹妹(即节点)
 FilePath: /RealMisakaNetwork/sister.py
 '''
 import os
-from pickle import FALSE
+import _thread
 import colorama
 import cpsc
 import ufio
@@ -65,4 +65,42 @@ print(Fore.BLUE + "初始化全局变量...")
 exitFlag = False  # 控制妹妹是否执行退出, 默认为False
 cmdList = []  # 待执行指令列表, 默认为[]
 print(Fore.GREEN + "定义且赋值了必要的全局变量.")
-pass  # 未完待续
+
+
+def cmd_rx():
+    global cmdList
+    while True:
+        temp = (os.popen("nc -l -p 12233").readlines())
+        for i in temp:
+            cmdList.append(i.rstrip("\n"))
+
+
+def cmd_run():
+    pass
+
+
+def cmd_tx():
+    pass
+
+
+def file_rx():
+    pass
+
+
+def file_tx():
+    pass
+
+
+try:
+    _thread.start_new_thread(cmd_rx, ())
+    _thread.start_new_thread(cmd_run, ())
+    _thread.start_new_thread(cmd_tx, ())
+    _thread.start_new_thread(file_rx, ())
+    _thread.start_new_thread(file_tx, ())
+except:
+    temp = input(Fore.RED + Style.BRIGHT + "错误: 无法正常启动某个线程! 退出.")
+    exit()
+while True:
+    print(cmdList)  # For DEV use
+    if exitFlag == True:
+        exit()
