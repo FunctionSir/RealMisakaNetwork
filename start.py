@@ -1,7 +1,7 @@
 '''
 Author: FunctionSir
 Date: 2022-01-01 15:08:40
-LastEditTime: 2022-08-04 22:43:04
+LastEditTime: 2022-08-11 22:23:40
 LastEditors: FunctionSir
 Description: 启动器
 FilePath: /RealMisakaNetwork/start.py
@@ -30,5 +30,5 @@ else:
     PY = python.python
     print(Fore.GREEN+"启动sister.py...")
     os.system(PY + " " + "sister.py")
-    print(Fore.BLUE+"将要退出.")
+    print(Fore.BLUE+"sister.py已退出.")
     input("按下Enter继续...")

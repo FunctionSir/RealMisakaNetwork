@@ -1,7 +1,7 @@
 '''
 Author: FunctionSir
 Date: 2022-01-01 17:48:44
-LastEditTime: 2022-08-04 22:06:55
+LastEditTime: 2022-08-11 21:57:08
 LastEditors: FunctionSir
 Description: 首次运行向导
 FilePath: /RealMisakaNetwork/firstrun.py
@@ -73,8 +73,8 @@ if input("[要继续,请输入「EXEC」(区分大小写)]\n>>> ") == "EXEC":
         print("使用默认值, 要写入的内容是:", temp)
         ufio.write_lines("conf", "python.py", 1, temp, 2)
     else:
-        ufio.write_lines("conf", "python.py", 1, ("python = "+str(temp)).split(
-            StaticRes.STR_NGA+StaticRes.STR_NGA+StaticRes.STR_NGA), 2)
+        ufio.write_lines("conf", "python.py", 1,
+                         ("python = "+str(temp)).split(), 2)
 
     temp = ""
     temp = input("要使用的用以运行netcat的命令\n>>> ")
@@ -83,8 +83,8 @@ if input("[要继续,请输入「EXEC」(区分大小写)]\n>>> ") == "EXEC":
         print("使用默认值, 要写入的内容是:", temp)
         ufio.write_lines("conf", "netcat.py", 1, temp, 2)
     else:
-        ufio.write_lines("conf", "netcat.py", 1, ("netcat = "+str(temp)).split(
-            StaticRes.STR_NGA+StaticRes.STR_NGA+StaticRes.STR_NGA), 2)
+        ufio.write_lines("conf", "netcat.py", 1,
+                         ("netcat = "+str(temp)).split(), 2)
 
     temp = ""
     temp = input("要使用的用以运行Miniserve的命令\n>>> ")
@@ -93,8 +93,8 @@ if input("[要继续,请输入「EXEC」(区分大小写)]\n>>> ") == "EXEC":
         print("使用默认值, 要写入的内容是:", temp)
         ufio.write_lines("conf", "miniserve.py", 1, temp, 2)
     else:
-        ufio.write_lines("conf", "miniserve.py", 1, ("miniserve = "+str(temp)).split(
-            StaticRes.STR_NGA+StaticRes.STR_NGA+StaticRes.STR_NGA), 2)
+        ufio.write_lines("conf", "miniserve.py", 1,
+                         ("miniserve = "+str(temp)).split(), 2)
 
     print("GNU Wget设置将使用默认值(一般不需要更改).")
     temp = StaticRes.DEAFULT_WGET_CONF_FILE_CONTENT

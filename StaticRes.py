@@ -1,7 +1,7 @@
 '''
 Author: FunctionSir
 Date: 2022-01-01 18:09:52
-LastEditTime: 2022-08-04 22:07:38
+LastEditTime: 2022-08-11 21:57:18
 LastEditors: FunctionSir
 Description: 版本信息等静态资源
 Note: 此文件仅充当资源库
@@ -22,8 +22,8 @@ ASCII_MISAKA = "m    m   \"                  #            \n##  ## mmm     mmm  
 ASCII_NETWORK = "mm   m          m                         #     \n#\"m  #  mmm   mm#mm m     m  mmm    m mm  #   m \n# #m # #\"  #    #   \"m m m\" #\" \"#   #\"  \" # m\"  \n#  # # #\"\"\"\"    #    #m#m#  #   #   #     #\"#   \n#   ## \"#mm\"    \"mm   # #   \"#m#\"   #     #  \"m"
 
 '''
-永不会出现的字符串(用以str->单元素list时的参数)
-不要让她很简单, 不然可能会出现莫名其妙的BUG
+永不会出现的字符串
+预留
 '''
 STR_NGA = "\n\n\n(・∀・)this String is NeVER Gonna to Appear(・∀・)\n木原家族的价格是114514镑114514便士\n辊斤拷烫烫烫屯屯屯\nTel: +114514-114514-114514\nosifhowerhffheiuhewr983ry238957y348567345isphdh9843yurhdksdfjoieja3493540454sjfoie\n(°Д°)(◕‿◕✿)☺\n\n\n"
 
