@@ -139,5 +139,5 @@ conf/
 temp/
 lock/
 data/
-*.link
 *.lck
+*.mnl
