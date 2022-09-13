@@ -134,7 +134,7 @@ dmypy.json
 # VSCode
 .vscode/
 
-# Misc
+# Misc files
 conf/
 temp/
 lock/

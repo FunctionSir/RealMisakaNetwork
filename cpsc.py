@@ -1,7 +1,7 @@
 '''
 Author: FunctionSir
 Date: 2021-09-21 09:35:07
-LastEditTime: 2022-07-29 15:13:37
+LastEditTime: 2022-09-02 17:35:05
 LastEditors: FunctionSir
 Description: CrossPlatformSystemCommands，自动判断操作系统的系统并执行指令
 FilePath: /RealMisakaNetwork/cpsc.py

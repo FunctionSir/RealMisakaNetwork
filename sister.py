@@ -1,7 +1,7 @@
 '''
 Author: FunctionSir
 Date: 2022-03-05 17:38:02
-LastEditTime: 2022-08-17 23:13:38
+LastEditTime: 2022-09-05 22:57:46
 LastEditors: FunctionSir
 Description: 妹妹(即节点)
 FilePath: /RealMisakaNetwork/sister.py
@@ -66,11 +66,18 @@ else:
     exit()
 
 print(Fore.BLUE + "初始化全局变量...")
-exitFlag = False  # 控制妹妹是否执行退出, 默认为False
+sistersSNs = []  # 妹妹SN列表
+sistersAddrs = []  # 妹妹地址列表, 与SN一一对应.
+sistersPorts = []  # 妹妹端口列表, 与SN一一对应.
+exitFlag = False  # 控制妹妹退出, 切勿改为True.
 cmdToDoList = []  # 待执行命令列表, 默认为空.
 cmdToTxList = []  # 待发送命令列表, 默认为空.
-fileContentBuffer = []
+fileContentBuffer = []  # 文件内容缓冲区.
 print(Fore.GREEN + "定义且赋值了必要的全局变量.")
+
+
+def load_mnls():
+    pass  # Developing
 
 
 def cmd_rx():
@@ -100,7 +107,7 @@ def c_default():
                   "\" 然而这并不是一个有效命令, 忽略并从cmdToDoList中移除.")
         else:
             print("\n[CMD::DEFAULT] 收到 \""+cmdToDoList[0] +
-                  "\" 一切命令以!开头, 这也许是多余的参数或是一个语法错误, 忽略并从cmdToDoList中移除.")
+                  "\" 一切命令以!开头, 这也许是多余的参数或是一个语法错误, 或您使用了!default命令, 忽略并从cmdToDoList中移除.")
     pass
     del cmdToDoList[0]
 
@@ -200,6 +207,7 @@ def cmd_run():
                 Case("!sys", lambda: c_sys()),
                 Case("!py", lambda: c_py()),
                 Case("!r", lambda: c_r()),
+                Case("!default", lambda: c_default()),
                 Case("default", lambda: c_default())
             ])
 

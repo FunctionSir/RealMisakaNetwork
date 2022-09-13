@@ -1,7 +1,7 @@
 '''
 Author: FunctionSir
 Date: 2022-01-01 18:09:52
-LastEditTime: 2022-08-17 17:57:20
+LastEditTime: 2022-09-05 22:01:09
 LastEditors: FunctionSir
 Description: 版本信息等静态资源
 Note: 此文件仅充当资源库
@@ -14,6 +14,7 @@ FilePath: /RealMisakaNetwork/StaticRes.py
 PROJECT_NAME = "RealMisakaNetwork"  # 项目名称
 VER = "0.1"  # 版本
 VER_CODENAME = "MisakaMikoto"  # 版本代号（在这个项目里, 会使用《某科学的超电磁炮（S/T）》中的人物来作为这个）
+MNL_VER = "0.1-alpha"  # 指定使用的mnl版本
 
 '''
 ASCII艺术, 由toilet生成

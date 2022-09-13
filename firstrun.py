@@ -1,7 +1,7 @@
 '''
 Author: FunctionSir
 Date: 2022-01-01 17:48:44
-LastEditTime: 2022-08-17 21:51:02
+LastEditTime: 2022-09-05 22:02:09
 LastEditors: FunctionSir
 Description: 首次运行向导
 FilePath: /RealMisakaNetwork/firstrun.py
@@ -168,7 +168,7 @@ if input("[要继续,请输入「EXEC」(区分大小写)]\n>>> ") == "EXEC":
     print("创建"+sisterSN+".mnl")
     cpsc.mkfile("", sisterSN+".mnl")
     ufio.write_lines("", sisterSN+".mnl",
-                     1, ["0.1-alpha", sisterIPOrDN, sisterCmdInPort, sisterFileSharePort], 2)
+                     1, [StaticRes.MNL_VER, sisterIPOrDN, sisterCmdInPort, sisterFileSharePort], 2)
 
     print(Fore.GREEN + "此向导已经接近尾声了, 对了, 正式运行前请您仔细检查相关配置文件是否合乎心意.")
     print("创建就绪锁文件lock/ready.lck")
